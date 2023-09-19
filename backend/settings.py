@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-51=ug424it*6b6_aitrd&m0^6+cfxx^o4t1mdl32y6qsxjs(35
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'backend']
 
 
 # Application definition
@@ -81,8 +81,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'django_restful_feuwall',
         'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',
+        'PASSWORD': '123',
+        'HOST': 'database',
         'PORT': '3306',
     }
 }
