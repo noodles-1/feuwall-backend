@@ -8,7 +8,7 @@ from .serializers import NoteSerializer
 @api_view(['GET'])
 def getData(request, genre):
     paginator = PageNumberPagination()
-    paginator.page_size = 5
+    paginator.page_size = 20
 
     if genre == 'general':
         notes = Note.objects.order_by('-date')

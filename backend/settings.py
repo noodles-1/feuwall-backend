@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-51=ug424it*6b6_aitrd&m0^6+cfxx^o4t1mdl32y6qsxjs(35
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', 'backend']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -51,6 +51,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+CSRF_TRUSTED_ORIGINS=['https://feu-wall-backend-cx4vkugj6a-df.a.run.app']
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -79,11 +81,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_restful_feuwall',
+        'HOST': '/cloudsql/feu-freedom-wall:asia-east2:test-db',
         'USER': 'root',
         'PASSWORD': '123',
-        'HOST': 'database',
-        'PORT': '3306',
+        'NAME': 'test-db',
     }
 }
 
