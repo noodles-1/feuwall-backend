@@ -10,7 +10,19 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
+
+from dotenv import load_dotenv
 from pathlib import Path
+
+load_dotenv(dotenv_path='.env')
+SECRET_KEY = os.getenv('SECRET_KEY')
+SERVER_ORIGIN = os.getenv('SERVER_ORIGIN')
+DB_HOST = os.getenv('DB_HOST')
+DB_PORT = os.getenv('DB_PORT')
+DB_USER = os.getenv('DB_USER')
+DB_PASSWORD = os.getenv('DB_PASSWORD')
+DB_NAME = os.getenv('DB_NAME')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -52,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-CSRF_TRUSTED_ORIGINS=['https://feu-wall-backend-cx4vkugj6a-df.a.run.app']
+CSRF_TRUSTED_ORIGINS=[SERVER_ORIGIN]
 
 ROOT_URLCONF = 'backend.urls'
 
@@ -81,10 +93,11 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': '/cloudsql/feu-freedom-wall:asia-east2:test-db',
-        'USER': 'root',
-        'PASSWORD': '123',
-        'NAME': 'test-db',
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSWORD,
+        'NAME': DB_NAME,
     }
 }
 
